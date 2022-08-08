@@ -10,35 +10,38 @@ const items = reactive(arr)
 let draggable = null
 
 onMounted(() => {
-  const customScrollableElements = document.querySelectorAll(
-    '.my-custom-scroll-elements'
-  )
+  // const customScrollableElements = document.querySelectorAll(
+  //   '.my-custom-scroll-elements'
+  // )
 
   draggable = new Draggable(document.querySelectorAll('ul.PluginScrollable'), {
     draggable: 'li', // containers 中想拖曳的元素
 
     // 想排除的功能
-    // exclude: {
-    //   plugins: [Draggable.Plugins.Focusable],
-    //   sensors: [Draggable.Sensors.TouchSensor],
-    // },
+    exclude: {
+      // plugins: [Draggable.Plugins.Scrollable],
+      // sensors: [Draggable.Sensors.TouchSensor],
+    },
 
     // 拖過元素時，想添加的 className
     classes: {
       'draggable:over': ['draggable--over'],
     },
-    scrollable: {
-      speed: 6,
-      sensitivity: 12,
-      scrollableElements: [...customScrollableElements],
-    },
+    // scrollable: {
+    //   speed: 6,
+    //   sensitivity: 12,
+    //   scrollableElements: [...customScrollableElements],
+    // },
   })
+
+  draggable.removePlugin(Draggable.Plugins.Scrollable)
 
   draggable.on('drag:start', () => console.log('drag:start'))
   draggable.on('drag:move', () => console.log('drag:move'))
   draggable.on('drag:stop', () => console.log('drag:stop'))
   draggable.on('drag:over:container', (e) => $log('drag:over:container', e))
-  draggable.on('drag:pressure', () => alert('drag:presure'))
+
+  console.log('draggable', draggable)
 })
 
 onUnmounted(() => {
@@ -49,7 +52,7 @@ onUnmounted(() => {
 <template>
   <section>
     <h2>Draggable Plugin Scrollable</h2>
-    <p>可捲動</p>
+    <p>拖曳到畫面尾端後，可以持續滾動頁面</p>
     <ul class="flex gap-2 PluginScrollable flex-col">
       <li
         v-for="(item, index) in items"
@@ -59,13 +62,6 @@ onUnmounted(() => {
         {{ item }}
       </li>
     </ul>
-    <div
-      class="my-custom-scroll-elements flex flex-col"
-      v-for="(item, index) in ['a', 'b', 'c']"
-      :key="index"
-    >
-      {{ item }}
-    </div>
   </section>
 </template>
 

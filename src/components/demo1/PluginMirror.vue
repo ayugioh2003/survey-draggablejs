@@ -14,8 +14,7 @@ onMounted(() => {
 
     // 想排除的功能
     // exclude: {
-    //   plugins: [Draggable.Plugins.Focusable],
-    //   sensors: [Draggable.Sensors.TouchSensor],
+    //   plugins: [Draggable.Plugins.Mirror],
     // },
 
     // 拖過元素時，想添加的 className
