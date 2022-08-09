@@ -4,19 +4,26 @@ import { Sortable, Plugins } from '@shopify/draggable'
 
 const $log = inject('$log')
 
-const items = reactive(['item1', 'item2', 'item3', 'item4', 'item5'])
+const arr = [...Array(15)].map((v, i) => `item${i + 1}`)
+const items = reactive(arr)
 
 let sortable = null
 
 onMounted(() => {
-  sortable = new Sortable(document.querySelectorAll('ul.PluginSnappable'), {
+  sortable = new Sortable(document.querySelectorAll('ul.PluginSwapAnimation'), {
     draggable: 'li', // containers 中想拖曳的元素
-    plugins: [Plugins.Snappable],
 
     // 拖過元素時，想添加的 className
     classes: {
       'draggable:over': ['draggable--over'],
     },
+
+    swapAnimation: {
+      duration: 1000,
+      easingFunction: 'ease-out-in',
+      horizontal: false,
+    },
+    plugins: [Plugins.SwapAnimation], // Or [SwapAnimation]
   })
 
   // sortable.on('drag:start', () => console.log('drag:start'))
@@ -27,7 +34,7 @@ onMounted(() => {
   sortable.on('snap:in', (e) => $log('snap:in', e))
   sortable.on('snap:out', (e) => $log('snap:out', e))
 
-  // console.log('sortable', sortable)
+  console.log('sortable', sortable)
 })
 
 onUnmounted(() => {
@@ -37,14 +44,10 @@ onUnmounted(() => {
 
 <template>
   <section>
-    <h2>Plugin Snappable</h2>
-    <p>Mirror 快速移動到可放置區域</p>
-    <ul class="PluginSnappable py-2">
-      <li
-        v-for="(item, index) in items"
-        :key="`snap${item}`"
-        class="cursor-pointer p-1"
-      >
+    <h2>Plugin PluginSwapAnimation</h2>
+    <p>非預設。交換時有動畫（看不出來，只有抖動而已）。目前只支援 sortable</p>
+    <ul class="PluginSwapAnimation py-2">
+      <li v-for="item in items" :key="item" class="cursor-pointer p-1">
         {{ item }}
       </li>
     </ul>
@@ -68,7 +71,7 @@ li {
   background-color: gray;
 }
 
-.PluginSnappable {
+.PluginSwapAnimation {
   display: grid;
   gap: 1rem;
   grid-template-columns: 200px 200px 1fr;

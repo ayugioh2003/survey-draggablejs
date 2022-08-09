@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 import PluginCollidable from './PluginCollidable.vue'
 import PluginResizeMirror from './PluginResizeMirror.vue'
 import PluginSnappable from './PluginSnappable.vue'
+import PluginSwapAnimation from './PluginSwapAnimation.vue'
 
 onMounted(() => {})
 </script>
@@ -14,5 +15,6 @@ onMounted(() => {})
     <PluginCollidable />
     <PluginResizeMirror />
     <PluginSnappable />
+    <PluginSwapAnimation />
   </section>
 </template>
