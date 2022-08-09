@@ -5,14 +5,13 @@ import { Sortable, Plugins } from '@shopify/draggable'
 const $log = inject('$log')
 
 const items = reactive(['item1', 'item2', 'item3', 'item4', 'item5'])
-const items2 = reactive(['item6', 'item7', 'item8', 'item9', 'item10'])
 
 let sortable = null
 
 onMounted(() => {
-  sortable = new Sortable(document.querySelectorAll('ul.PluginResizeMirror'), {
+  sortable = new Sortable(document.querySelectorAll('ul.PluginSnappable'), {
     draggable: 'li', // containers 中想拖曳的元素
-    plugins: [Plugins.ResizeMirror],
+    plugins: [Plugins.Snappable],
 
     // 拖過元素時，想添加的 className
     classes: {
@@ -24,6 +23,11 @@ onMounted(() => {
   // sortable.on('drag:move', () => console.log('drag:move'))
   // sortable.on('drag:stop', () => console.log('drag:stop'))
   // sortable.on('drag:over:container', (e) => $log('drag:over:container', e))
+
+  sortable.on('snap:in', (e) => $log('snap:in', e))
+  sortable.on('snap:out', (e) => $log('snap:out', e))
+
+  console.log('sortable', sortable)
 })
 
 onUnmounted(() => {
@@ -33,22 +37,12 @@ onUnmounted(() => {
 
 <template>
   <section>
-    <h2>Plugin ResizeMirror</h2>
-    <p>Mirror 尺寸變化</p>
-    <ul class="PluginResizeMirror py-2">
+    <h2>Plugin Snappable</h2>
+    <p>Mirror 快速移動到可放置區域</p>
+    <ul class="PluginSnappable py-2">
       <li
         v-for="(item, index) in items"
-        :key="index"
-        class="cursor-pointer p-1"
-      >
-        {{ item }}
-      </li>
-    </ul>
-
-    <ul class="PluginResizeMirror py-2 mt-4">
-      <li
-        v-for="(item, index) in items2"
-        :key="index"
+        :key="`snap${item}`"
         class="cursor-pointer p-1"
       >
         {{ item }}
@@ -74,7 +68,7 @@ li {
   background-color: gray;
 }
 
-.PluginResizeMirror {
+.PluginSnappable {
   display: grid;
   gap: 1rem;
   grid-template-columns: 200px 200px 1fr;

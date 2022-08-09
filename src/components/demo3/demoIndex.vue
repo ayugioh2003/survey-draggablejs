@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import PluginCollidable from './PluginCollidable.vue'
 import PluginResizeMirror from './PluginResizeMirror.vue'
+import PluginSnappable from './PluginSnappable.vue'
 
 onMounted(() => {})
 </script>
@@ -12,5 +13,6 @@ onMounted(() => {})
 
     <PluginCollidable />
     <PluginResizeMirror />
+    <PluginSnappable />
   </section>
 </template>
