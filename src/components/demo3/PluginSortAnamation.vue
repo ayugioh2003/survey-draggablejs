@@ -10,7 +10,7 @@ const items = reactive(arr)
 let sortable = null
 
 onMounted(() => {
-  sortable = new Sortable(document.querySelectorAll('ul.PluginSwapAnimation'), {
+  sortable = new Sortable(document.querySelectorAll('ul.PluginSortAnimation'), {
     draggable: 'li', // containers 中想拖曳的元素
 
     // 拖過元素時，想添加的 className
@@ -18,12 +18,11 @@ onMounted(() => {
       'draggable:over': ['draggable--over'],
     },
 
-    swapAnimation: {
-      duration: 1000,
-      easingFunction: 'ease-out-in',
-      horizontal: false,
+    sortAnimation: {
+      duration: 200,
+      easingFunction: 'ease-in-out',
     },
-    plugins: [Plugins.SwapAnimation], // Or [SwapAnimation]
+    plugins: [Plugins.SortAnimation], // Or [SortAnimation]
   })
 
   // sortable.on('drag:start', () => console.log('drag:start'))
@@ -31,10 +30,7 @@ onMounted(() => {
   // sortable.on('drag:stop', () => console.log('drag:stop'))
   // sortable.on('drag:over:container', (e) => $log('drag:over:container', e))
 
-  sortable.on('snap:in', (e) => $log('snap:in', e))
-  sortable.on('snap:out', (e) => $log('snap:out', e))
-
-  console.log('sortable', sortable)
+  // console.log('sortable', sortable)
 })
 
 onUnmounted(() => {
@@ -44,15 +40,18 @@ onUnmounted(() => {
 
 <template>
   <section>
-    <h2>Plugin PluginSwapAnimation</h2>
-    <p>非預設。交換時有動畫（看不出來，只有抖動而已）。目前只支援 sortable</p>
-    <ul class="PluginSwapAnimation py-2">
+    <h2>Plugin PluginSortAnimation</h2>
+    <p>
+      非預設。交換時有動畫（看不出來，只有抖動而已）。目前只支援
+      sortable。支援垂直與水平 grid layout
+    </p>
+    <ul class="PluginSortAnimation py-2">
       <li
         v-for="(item, index) in items"
-        :key="item"
+        :key="`snap${item}`"
         class="cursor-pointer p-1 bg-orange-500"
         :class="{
-          'bg-purple-500': index % 3 === 0,
+          'bg-gray-500': index % 3 === 0,
         }"
       >
         {{ item }}
@@ -66,6 +65,7 @@ ul {
   background-color: pink;
 }
 li {
+  // background-color: orange;
   transition: all 0.3s;
 }
 
@@ -77,7 +77,7 @@ li {
   background-color: gray;
 }
 
-.PluginSwapAnimation {
+.PluginSortAnimation {
   display: grid;
   gap: 1rem;
   grid-template-columns: 200px 200px 1fr;
