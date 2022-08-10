@@ -11,7 +11,7 @@ onMounted(() => {})
 
 <template>
   <section class="mb-20">
-    <h2>Demo3Index</h2>
+    <!-- <h2>Demo3Index</h2> -->
 
     <PluginCollidable />
     <PluginResizeMirror />

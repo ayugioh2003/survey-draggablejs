@@ -7,7 +7,7 @@ onMounted(() => {})
 
 <template>
   <section>
-    <h2>Demo4Index</h2>
+    <!-- <h2>Demo4Index</h2> -->
 
     <SortableDefault />
   </section>

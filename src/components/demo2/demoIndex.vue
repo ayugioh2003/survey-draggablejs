@@ -7,7 +7,7 @@ onMounted(() => {})
 
 <template>
   <section>
-    <h2>Demo2Index</h2>
+    <!-- <h2>Demo2Index</h2> -->
 
     <DroppableDefault />
   </section>
