@@ -1,5 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
+import Demo1View from '@/views/Demo1DraggableView.vue'
+import Demo2View from '@/views/Demo2DroppableView.vue'
+import Demo3View from '@/views/Demo3PluginsView.vue'
+import Demo4View from '@/views/Demo4SortableView.vue'
+import Demo5View from '@/views/Demo5SwappableView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -12,40 +17,27 @@ const router = createRouter({
     {
       path: '/demo1Draggable',
       name: 'demo1Draggable',
-      component: () =>
-        import(/* @vite-ignore */ '@/views/Demo1DraggableView.vue'),
+      component: Demo1View,
     },
     {
       path: '/demo2Droppable',
       name: 'demo2Droppable',
-      component: () =>
-        import(/* @vite-ignore */ '@/views/Demo2DroppableView.vue'),
+      component: Demo2View,
     },
     {
       path: '/demo3Plugins',
       name: 'demo3Plugins',
-      component: () =>
-        import(/* @vite-ignore */ '@/views/Demo3PluginsView.vue'),
+      component: Demo3View,
     },
     {
       path: '/demo4Sortable',
       name: 'demo4Sortable',
-      component: () =>
-        import(/* @vite-ignore */ '@/views/Demo4SortableView.vue'),
+      component: Demo4View,
     },
     {
       path: '/demo5Swappable',
       name: 'demo5Swappable',
-      component: () =>
-        import(/* @vite-ignore */ '@/views/Demo5SwappableView.vue'),
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* @vite-ignore */ '@/views/AboutView.vue'),
+      component: Demo5View,
     },
   ],
 })
