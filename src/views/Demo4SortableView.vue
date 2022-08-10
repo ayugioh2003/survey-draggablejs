@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted } from 'vue'
-import Demo4Index from '@/components/demo4/demoIndex.vue  '
+import Demo4Index from '@/components/demo4/demoIndex.vue'
 
 onMounted(() => {})
 </script>
