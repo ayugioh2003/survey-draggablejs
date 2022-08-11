@@ -3,8 +3,8 @@ import HomeView from '@/views/HomeView.vue'
 // import Demo1View from '@/views/Demo1DraggableView.vue'
 // import Demo2View from '@/views/Demo2DroppableView.vue'
 // import Demo3View from '@/views/Demo3PluginsView.vue'
-import Demo4View from '@/views/Demo4SortableView.vue'
-import Demo5View from '@/views/Demo5SwappableView.vue'
+// import Demo4View from '@/views/Demo4SortableView.vue'
+// import Demo5View from '@/views/Demo5SwappableView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: '/demo5Swappable',
       name: 'demo5Swappable',
-      component: Demo5View,
+      component: () => import('../views/Demo5SwappableView.vue'),
     },
   ],
 })
