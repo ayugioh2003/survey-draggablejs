@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
-import Demo1View from '@/views/Demo1DraggableView.vue'
+// import Demo1View from '@/views/Demo1DraggableView.vue'
 import Demo2View from '@/views/Demo2DroppableView.vue'
 import Demo3View from '@/views/Demo3PluginsView.vue'
 import Demo4View from '@/views/Demo4SortableView.vue'
@@ -17,12 +17,12 @@ const router = createRouter({
     {
       path: '/demo1Draggable',
       name: 'demo1Draggable',
-      component: Demo1View,
+      component: () => import('../views/Demo1DraggableView.vue'),
     },
     {
       path: '/demo2Droppable',
       name: 'demo2Droppable',
-      component: Demo2View,
+      component: () => import('../views/Demo2DroppableView.vue'),
     },
     {
       path: '/demo3Plugins',
