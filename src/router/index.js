@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/demo4Sortable',
       name: 'demo4Sortable',
-      component: Demo4View,
+      component: () => import('../views/Demo4SortableView.vue'),
     },
     {
       path: '/demo5Swappable',
