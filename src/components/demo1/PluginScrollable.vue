@@ -52,7 +52,9 @@ onUnmounted(() => {
 <template>
   <section>
     <h2>Draggable Plugin Scrollable</h2>
-    <p>拖曳到畫面尾端後，可以持續滾動頁面</p>
+    <p>
+      拖曳到畫面尾端後，可以持續滾動頁面。這個區塊為了凸顯效果，取消 Scrollable
+    </p>
     <ul class="flex gap-2 PluginScrollable flex-col">
       <li
         v-for="(item, index) in items"

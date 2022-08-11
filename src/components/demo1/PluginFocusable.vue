@@ -39,7 +39,10 @@ onUnmounted(() => {
 <template>
   <section>
     <h2>Draggable Plugin Focusable</h2>
-    <p>預設 Draggable 有帶入 Focusable，所以會直接有 tabindex 效果</p>
+    <p>
+      預設 Draggable 有帶入 Focusable，所以會直接有 tabindex
+      效果(這個區塊為了凸顯效果，取消 tabindex)
+    </p>
     <ul class="flex gap-2 PluginFocusable">
       <li
         v-for="(item, index) in items"

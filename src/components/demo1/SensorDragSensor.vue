@@ -28,8 +28,8 @@ onMounted(() => {
   })
 
   draggable.on('drag:start', () => console.log('drag:start'))
-  draggable.on('drag:move', () => console.log('drag:move'))
-  draggable.on('drag:stop', () => console.log('drag:stop'))
+  // draggable.on('drag:move', () => console.log('drag:move'))
+  // draggable.on('drag:stop', () => console.log('drag:stop'))
   draggable.on('drag:over:container', (e) => $log('drag:over:container', e))
 
   draggable.removeSensor(Sensors.MouseSensor)

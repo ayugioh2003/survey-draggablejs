@@ -9,7 +9,7 @@ const items = reactive(['item1', 'item2', 'item3'])
 let draggable = null
 
 onMounted(() => {
-  draggable = new Draggable(document.querySelectorAll('ul.SensorDragSensor'), {
+  draggable = new Draggable(document.querySelectorAll('ul.ForceTouchSensor'), {
     draggable: 'li', // containers 中想拖曳的元素
 
     // Sensors
@@ -44,10 +44,9 @@ onUnmounted(() => {
   <section>
     <h2>Draggable Sensor ForceTouchSensor</h2>
     <p>
-      監聽原生 drag event: drag:start, drag:move, drag:stop 事件，所以不會有
-      mirror
+      監聽 touch 事件。only works for Macbook Pros with force touch trackpads
     </p>
-    <ul class="flex gap-2 SensorDragSensor">
+    <ul class="flex gap-2 ForceTouchSensor">
       <li
         v-for="(item, index) in items"
         :key="index"
