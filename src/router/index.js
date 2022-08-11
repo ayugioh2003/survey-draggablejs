@@ -16,27 +16,27 @@ const router = createRouter({
     },
     {
       path: '/demo1Draggable',
-      name: 'demo1Draggable',
+      name: '1Draggable',
       component: () => import('../views/Demo1DraggableView.vue'),
     },
     {
       path: '/demo2Droppable',
-      name: 'demo2Droppable',
+      name: '2Droppable',
       component: () => import('../views/Demo2DroppableView.vue'),
     },
     {
       path: '/demo3Plugins',
-      name: 'demo3Plugins',
+      name: '3Plugins',
       component: () => import('../views/Demo3PluginsView.vue'),
     },
     {
       path: '/demo4Sortable',
-      name: 'demo4Sortable',
+      name: '4Sortable',
       component: () => import('../views/Demo4SortableView.vue'),
     },
     {
       path: '/demo5Swappable',
-      name: 'demo5Swappable',
+      name: '5Swappable',
       component: Demo5View,
     },
   ],
