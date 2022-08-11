@@ -37,7 +37,7 @@ const router = createRouter({
     {
       path: '/demo5Swappable',
       name: 'demo5Swappable',
-      component: () => import('@/views/Demo5SwappableView.vue'),
+      component: () => import('../views/Demo5SwappableView.vue'),
     },
   ],
 })
