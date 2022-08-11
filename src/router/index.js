@@ -32,7 +32,7 @@ const router = createRouter({
     {
       path: '/demo4Sortable',
       name: 'demo4Sortable',
-      component: () => Demo4View,
+      component: Demo4View,
     },
     {
       path: '/demo5Swappable',
