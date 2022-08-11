@@ -12,7 +12,7 @@ const links = reactive([
   },
   {
     link: 'https://npmtrends.com/@shopify/draggable-vs-dragula-vs-interact.js-vs-sortablejs',
-    desc: '拖拉套件 google trend 比較',
+    desc: '拖拉套件 npm trend 比較',
   },
 ])
 </script>
